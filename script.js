@@ -250,7 +250,7 @@ const SheepSounds = (function () {
                 }
                 ctx.closePath();
                 ctx.fill();
-                
+
                 // Star glow
                 ctx.shadowColor = '#d4a855';
                 ctx.shadowBlur = this.size * 3;
@@ -352,7 +352,7 @@ const SheepSounds = (function () {
             this.x += this.speedX;
             this.y += this.speedY;
             this.rotation += this.rotationSpeed;
-            
+
             if (this.y > canvas.height * 0.8) {
                 this.opacity -= 0.02;
             }
@@ -416,22 +416,22 @@ const SheepSounds = (function () {
 
             launchConfetti();
             if (confettiPieces.length === 120) animate(); // restart if needed
-            
+
             // Add bounce effect
             sheep.style.animation = 'none';
             sheep.offsetHeight; // trigger reflow
             sheep.style.animation = '';
-            
+
             // Sheep says "بااااع" - show a speech bubble
-            const messages = ['مبااااع 🐑', 'عيد مبارك! 🎉', 'كل سنة وانت طيب 💚'];
+            const messages = ['ماااااء 🐑', 'عيد مبارك! 🎉', 'كل سنة وانت طيب 💚'];
             const bubble = document.createElement('div');
             bubble.textContent = messages[idx] || messages[0];
-            
+
             // Get sheep position to place bubble above it (outside transform context)
             const rect = sheep.getBoundingClientRect();
             const bubbleX = rect.left + rect.width / 2;
             const bubbleY = rect.top - 10;
-            
+
             bubble.style.cssText = `
                 position: fixed;
                 top: ${bubbleY}px;
@@ -453,7 +453,7 @@ const SheepSounds = (function () {
                 unicode-bidi: plaintext;
             `;
             document.body.appendChild(bubble);
-            
+
             setTimeout(() => bubble.remove(), 2000);
         });
     });
@@ -473,7 +473,7 @@ const SheepSounds = (function () {
 // ===== Scroll Reveal (Greeting Card) =====
 (function initScrollReveal() {
     const card = document.querySelector('.greeting-card');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -511,7 +511,7 @@ function copyLink() {
         input.select();
         document.execCommand('copy');
         document.body.removeChild(input);
-        
+
         const toast = document.getElementById('copy-toast');
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 2500);
@@ -522,7 +522,7 @@ function copyLink() {
 // ===== Smooth Parallax on Scroll =====
 (function initParallax() {
     const crescent = document.querySelector('.crescent-moon');
-    
+
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         if (crescent) {
@@ -536,7 +536,7 @@ function copyLink() {
 (function initTakbeerPulse() {
     const takbeers = document.querySelectorAll('.takbeer');
     let index = 0;
-    
+
     setInterval(() => {
         takbeers.forEach(t => t.style.textShadow = 'none');
         if (takbeers[index]) {
