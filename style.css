@@ -155,7 +155,9 @@ body {
 
 .main-title {
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.4;
+    padding: 10px 0;
+    overflow: visible;
 }
 
 .title-line {
@@ -168,6 +170,9 @@ body {
     background-clip: text;
     animation: shimmer 3s ease-in-out infinite;
     text-shadow: none;
+    padding: 5px 10px;
+    overflow: visible;
+    direction: rtl;
 }
 
 .title-line-1 {
@@ -486,7 +491,11 @@ body {
 
 .sheep-3 {
     animation: sheepWalk3 5s ease-in-out infinite;
-    transform: scale(0.95) scaleX(-1);
+    transform: scale(0.95);
+}
+
+.sheep-3 .sheep-body {
+    transform: scaleX(-1);
 }
 
 @keyframes sheepWalk1 {
@@ -500,8 +509,8 @@ body {
 }
 
 @keyframes sheepWalk3 {
-    0%, 100% { transform: translateX(0) scale(0.95) scaleX(-1); }
-    50% { transform: translateX(25px) scale(0.95) scaleX(-1); }
+    0%, 100% { transform: translateX(0) scale(0.95); }
+    50% { transform: translateX(25px) scale(0.95); }
 }
 
 /* Grass */
