@@ -730,22 +730,16 @@ body {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .sheep-field {
-        gap: 20px;
+        gap: 30px 25px;
+        justify-content: center;
     }
 
-    .sheep-body {
-        width: 100px;
-        height: 85px;
+    .sheep {
+        transform: scale(0.8) !important;
     }
 
-    .sheep-wool {
-        width: 80px;
-        height: 55px;
-    }
-
-    .sheep-face {
-        width: 32px;
-        height: 38px;
+    .sheep-3 {
+        transform: scale(0.75) !important;
     }
 
     .card-content {
@@ -760,48 +754,48 @@ body {
 
 @media (max-width: 480px) {
     .sheep-field {
-        gap: 10px;
+        gap: 15px 20px;
+        padding: 20px 10px;
     }
 
-    .sheep-body {
-        width: 80px;
-        height: 70px;
+    .sheep {
+        transform: scale(0.65) !important;
+        margin: -10px;
     }
 
-    .sheep-wool {
-        width: 65px;
-        height: 45px;
+    .sheep-3 {
+        transform: scale(0.6) !important;
     }
 
-    .sheep-face {
-        width: 28px;
-        height: 32px;
-    }
-
-    .sheep-head {
-        top: 8px;
-        left: -12px;
-    }
-
-    .sheep-eye {
-        width: 8px;
-        height: 8px;
-    }
-
-    .sheep-horn {
-        width: 10px;
-        height: 14px;
-    }
-
-    .sheep-leg {
-        width: 7px;
-        height: 22px;
-        bottom: -18px;
+    .sheep-section {
+        min-height: 250px;
+        padding: 30px 0 0;
     }
 
     .verse {
         padding: 15px 20px;
         font-size: 0.9rem;
+    }
+
+    .card-content {
+        padding: 25px 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .sheep-field {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .sheep {
+        transform: scale(0.6) !important;
+        margin: -15px 0;
+    }
+
+    .sheep-3 {
+        transform: scale(0.55) !important;
     }
 }
 
