@@ -730,57 +730,8 @@ body {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .sheep-field {
-        gap: 30px;
-        flex-wrap: nowrap;
-        justify-content: center;
-        padding: 20px 10px;
-    }
-
-    .sheep-body {
-        transform-origin: center bottom;
-        width: 100px;
-        height: 85px;
-    }
-
-    .sheep-wool {
-        width: 80px;
-        height: 55px;
-    }
-
-    .sheep-face {
-        width: 34px;
-        height: 40px;
-    }
-
-    .sheep-eye {
-        width: 9px;
-        height: 9px;
-        top: 10px;
-    }
-
-    .sheep-eye::after {
-        width: 4px;
-        height: 4px;
-    }
-
-    .left-eye { left: 5px; }
-    .right-eye { right: 5px; }
-
-    .sheep-head {
-        top: 8px;
-        left: -12px;
-    }
-
-    .sheep-leg {
-        width: 8px;
-        height: 25px;
-        bottom: -20px;
-    }
-
-    .sheep-horn {
-        width: 11px;
-        height: 16px;
-        border-width: 2px;
+        zoom: 0.8;
+        gap: 25px;
     }
 
     .card-content {
@@ -793,88 +744,15 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     .sheep-field {
-        gap: 15px;
-        padding: 15px 5px;
-    }
-
-    .sheep-body {
-        width: 80px;
-        height: 70px;
-    }
-
-    .sheep-wool {
-        width: 65px;
-        height: 45px;
-        top: 10px;
-        left: 8px;
-    }
-
-    .sheep-face {
-        width: 26px;
-        height: 30px;
-    }
-
-    .sheep-eye {
-        width: 7px;
-        height: 7px;
-        top: 8px;
-    }
-
-    .sheep-eye::after {
-        width: 3px;
-        height: 3px;
-        top: 2px;
-        left: 2px;
-    }
-
-    .left-eye { left: 4px; }
-    .right-eye { right: 4px; }
-
-    .sheep-nose {
-        width: 8px;
-        height: 5px;
-        bottom: 8px;
-    }
-
-    .sheep-head {
-        top: 5px;
-        left: -10px;
-    }
-
-    .sheep-ear {
-        width: 13px;
-        height: 7px;
-    }
-
-    .sheep-horn {
-        width: 9px;
-        height: 13px;
-        border-width: 2px;
-        top: -8px;
-    }
-
-    .sheep-leg {
-        width: 6px;
-        height: 20px;
-        bottom: -16px;
-    }
-
-    .front-left { left: 15px; }
-    .front-right { left: 27px; }
-    .back-left { right: 18px; }
-    .back-right { right: 7px; }
-
-    .sheep-tail {
-        width: 10px;
-        height: 8px;
-        top: 25px;
+        zoom: 0.6;
+        gap: 20px;
     }
 
     .sheep-section {
-        min-height: 220px;
-        padding: 30px 0 0;
+        min-height: 240px;
+        padding: 40px 0 0;
     }
 
     .verse {
@@ -884,6 +762,13 @@ body {
 
     .card-content {
         padding: 25px 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    .sheep-field {
+        zoom: 0.5;
+        gap: 15px;
     }
 }
 
