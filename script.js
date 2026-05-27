@@ -426,11 +426,17 @@ const SheepSounds = (function () {
             const messages = ['مبااااع 🐑', 'عيد مبارك! 🎉', 'كل سنة وانت طيب 💚'];
             const bubble = document.createElement('div');
             bubble.textContent = messages[idx] || messages[0];
+            
+            // Get sheep position to place bubble above it (outside transform context)
+            const rect = sheep.getBoundingClientRect();
+            const bubbleX = rect.left + rect.width / 2;
+            const bubbleY = rect.top - 10;
+            
             bubble.style.cssText = `
-                position: absolute;
-                top: -40px;
-                left: 50%;
-                transform: translateX(-50%);
+                position: fixed;
+                top: ${bubbleY}px;
+                left: ${bubbleX}px;
+                transform: translateX(-50%) translateY(-100%);
                 background: rgba(255,255,255,0.95);
                 color: #333;
                 padding: 8px 16px;
@@ -440,12 +446,13 @@ const SheepSounds = (function () {
                 font-weight: 700;
                 white-space: nowrap;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                z-index: 100;
+                z-index: 1000;
                 animation: popUp 0.3s ease-out;
                 pointer-events: none;
+                direction: rtl;
+                unicode-bidi: plaintext;
             `;
-            sheep.style.position = 'relative';
-            sheep.appendChild(bubble);
+            document.body.appendChild(bubble);
             
             setTimeout(() => bubble.remove(), 2000);
         });

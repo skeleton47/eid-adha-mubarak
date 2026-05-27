@@ -163,13 +163,8 @@ body {
 .title-line {
     display: block;
     font-family: 'Aref Ruqaa', 'Amiri', serif;
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 40%, var(--gold-dark) 70%, var(--gold-light) 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 3s ease-in-out infinite;
-    text-shadow: none;
+    color: var(--gold-light);
+    text-shadow: 0 0 40px rgba(212, 168, 85, 0.5), 0 0 80px rgba(212, 168, 85, 0.2);
     padding: 5px 10px;
     overflow: visible;
     direction: rtl;
@@ -179,14 +174,14 @@ body {
     font-size: clamp(3rem, 10vw, 6rem);
     font-weight: 700;
     opacity: 0;
-    animation: slideUp 1s ease-out 0.3s forwards, shimmer 3s ease-in-out infinite;
+    animation: slideUp 1s ease-out 0.3s forwards;
 }
 
 .title-line-2 {
     font-size: clamp(4rem, 14vw, 8rem);
     font-weight: 700;
     opacity: 0;
-    animation: slideUp 1s ease-out 0.6s forwards, shimmer 3s ease-in-out infinite;
+    animation: slideUp 1s ease-out 0.6s forwards;
 }
 
 @keyframes shimmer {
