@@ -422,8 +422,8 @@ const SheepSounds = (function () {
             sheep.offsetHeight; // trigger reflow
             sheep.style.animation = '';
 
-            // Sheep says "بااااع" - show a speech bubble
-            const messages = ['ماااااء 🐑', 'عيد مبارك! 🎉', 'كل سنة وانت طيب 💚'];
+            // Sheep says "ماااااااء" - show a speech bubble
+            const messages = ['ماااااااء 🐑', 'عيد مبارك! 🎉', 'كل سنة وانت طيب 💚'];
             const bubble = document.createElement('div');
             bubble.textContent = messages[idx] || messages[0];
 
