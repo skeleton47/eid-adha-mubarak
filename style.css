@@ -1,0 +1,811 @@
+/* ===== CSS Variables & Design Tokens ===== */
+:root {
+    --gold: #d4a855;
+    --gold-light: #f0d68a;
+    --gold-dark: #b8860b;
+    --emerald: #0d6b3d;
+    --emerald-light: #1a9e5c;
+    --emerald-dark: #064a2a;
+    --cream: #fdf6e3;
+    --bg-dark: #0a1628;
+    --bg-gradient-1: #0f1f3d;
+    --bg-gradient-2: #162a50;
+    --text-light: #f5f0e1;
+    --text-muted: #b8a88a;
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-border: rgba(212, 168, 85, 0.3);
+    --shadow-gold: 0 0 40px rgba(212, 168, 85, 0.15);
+    --shadow-glow: 0 0 80px rgba(212, 168, 85, 0.1);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Cairo', 'Amiri', sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-gradient-1) 50%, var(--bg-gradient-2) 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ===== Particles Canvas ===== */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ===== Confetti Canvas ===== */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* ===== Islamic Pattern Overlay ===== */
+.pattern-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: 
+        repeating-conic-gradient(
+            from 0deg at 50% 50%,
+            transparent 0deg 30deg,
+            rgba(212, 168, 85, 0.5) 30deg 60deg,
+            transparent 60deg 90deg
+        );
+    background-size: 80px 80px;
+}
+
+/* ===== Lanterns ===== */
+.lanterns-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.lantern {
+    position: absolute;
+    top: -20px;
+    font-size: 2rem;
+    animation: swingLantern 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(212, 168, 85, 0.6));
+}
+
+.lantern::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+}
+
+@keyframes swingLantern {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+/* ===== Main Container ===== */
+.main-container {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.crescent-moon {
+    margin-bottom: 30px;
+    animation: floatCrescent 4s ease-in-out infinite;
+}
+
+.crescent {
+    font-size: 5rem;
+    filter: drop-shadow(0 0 30px rgba(212, 168, 85, 0.8));
+}
+
+@keyframes floatCrescent {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.05); }
+}
+
+.main-title {
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.title-line {
+    display: block;
+    font-family: 'Aref Ruqaa', 'Amiri', serif;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 40%, var(--gold-dark) 70%, var(--gold-light) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+    text-shadow: none;
+}
+
+.title-line-1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 700;
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.3s forwards, shimmer 3s ease-in-out infinite;
+}
+
+.title-line-2 {
+    font-size: clamp(4rem, 14vw, 8rem);
+    font-weight: 700;
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.6s forwards, shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Decorative Divider */
+.decorative-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+}
+
+.divider-star {
+    color: var(--gold);
+    font-size: 1.2rem;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.divider-line {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.subtitle {
+    font-family: 'Aref Ruqaa', 'Amiri', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--text-light);
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: slideUp 1s ease-out 1.2s forwards;
+    text-shadow: 0 0 30px rgba(212, 168, 85, 0.3);
+}
+
+.verse {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 2.2;
+    padding: 20px 30px;
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    animation: slideUp 1s ease-out 1.5s forwards;
+}
+
+/* ===== Sheep Section ===== */
+.sheep-section {
+    position: relative;
+    padding: 60px 0 0;
+    min-height: 350px;
+    overflow: hidden;
+}
+
+.sheep-field {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== CSS Sheep ===== */
+.sheep {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sheep:hover {
+    transform: scale(1.1);
+}
+
+.sheep:hover .sheep-tail {
+    animation: wagTail 0.3s ease-in-out infinite;
+}
+
+.sheep-body {
+    position: relative;
+    width: 120px;
+    height: 100px;
+}
+
+.sheep-wool {
+    position: absolute;
+    width: 100px;
+    height: 70px;
+    background: radial-gradient(ellipse, #fff 0%, #f0ece4 40%, #e0d8cc 100%);
+    border-radius: 50%;
+    top: 15px;
+    left: 10px;
+    box-shadow: 
+        inset -5px -5px 15px rgba(0,0,0,0.1),
+        0 4px 15px rgba(0,0,0,0.2),
+        -8px -2px 0 -2px #f5f0e8,
+        8px -4px 0 -2px #f5f0e8,
+        -4px -8px 0 -2px #f5f0e8,
+        4px -8px 0 -2px #f5f0e8,
+        0px -10px 0 -2px #f5f0e8;
+}
+
+.sheep-wool::before,
+.sheep-wool::after {
+    content: '';
+    position: absolute;
+    background: #f5f0e8;
+    border-radius: 50%;
+}
+
+.sheep-wool::before {
+    width: 30px;
+    height: 25px;
+    top: -10px;
+    left: 15px;
+}
+
+.sheep-wool::after {
+    width: 28px;
+    height: 22px;
+    top: -8px;
+    right: 15px;
+}
+
+.sheep-head {
+    position: absolute;
+    top: 5px;
+    left: -15px;
+    z-index: 3;
+}
+
+.sheep-face {
+    width: 40px;
+    height: 45px;
+    background: linear-gradient(180deg, #3d3028 0%, #2a2018 100%);
+    border-radius: 45% 45% 50% 50%;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.sheep-eye {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    top: 12px;
+    animation: blink 4s ease-in-out infinite;
+}
+
+.sheep-eye::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #111;
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+}
+
+.left-eye { left: 6px; }
+.right-eye { right: 6px; }
+
+@keyframes blink {
+    0%, 45%, 55%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.1); }
+}
+
+.sheep-nose {
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    background: #1a1410;
+    border-radius: 50%;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sheep-mouth {
+    position: absolute;
+    width: 8px;
+    height: 4px;
+    border-bottom: 2px solid #1a1410;
+    border-radius: 0 0 50% 50%;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sheep-ear {
+    position: absolute;
+    width: 18px;
+    height: 10px;
+    background: #3d3028;
+    border-radius: 50%;
+    top: 2px;
+}
+
+.left-ear {
+    left: -8px;
+    transform: rotate(-20deg);
+}
+
+.right-ear {
+    right: -8px;
+    transform: rotate(20deg);
+}
+
+.sheep-horn {
+    position: absolute;
+    width: 14px;
+    height: 20px;
+    border: 3px solid #c9b896;
+    border-radius: 50%;
+    top: -12px;
+    border-bottom: none;
+}
+
+.left-horn {
+    left: -2px;
+    transform: rotate(-30deg);
+}
+
+.right-horn {
+    right: -2px;
+    transform: rotate(30deg);
+}
+
+.sheep-leg {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background: linear-gradient(180deg, #3d3028, #2a1f15);
+    border-radius: 3px 3px 4px 4px;
+    bottom: -25px;
+}
+
+.front-left { left: 20px; }
+.front-right { left: 35px; }
+.back-left { right: 25px; }
+.back-right { right: 10px; }
+
+.sheep-tail {
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background: #f0ece4;
+    border-radius: 50%;
+    right: -5px;
+    top: 35px;
+}
+
+@keyframes wagTail {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+/* Sheep walking animations */
+.sheep-1 {
+    animation: sheepWalk1 6s ease-in-out infinite;
+}
+
+.sheep-2 {
+    animation: sheepWalk2 7s ease-in-out infinite;
+    transform: scale(0.85);
+}
+
+.sheep-3 {
+    animation: sheepWalk3 5s ease-in-out infinite;
+    transform: scale(0.95) scaleX(-1);
+}
+
+@keyframes sheepWalk1 {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+}
+
+@keyframes sheepWalk2 {
+    0%, 100% { transform: translateX(0) scale(0.85); }
+    50% { transform: translateX(-15px) scale(0.85); }
+}
+
+@keyframes sheepWalk3 {
+    0%, 100% { transform: translateX(0) scale(0.95) scaleX(-1); }
+    50% { transform: translateX(25px) scale(0.95) scaleX(-1); }
+}
+
+/* Grass */
+.grass {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, var(--emerald-dark), var(--emerald), transparent);
+    border-radius: 50% 50% 0 0;
+    margin-top: -20px;
+    z-index: 1;
+}
+
+.grass::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: var(--emerald-dark);
+}
+
+/* ===== Greeting Card ===== */
+.greeting-section {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.greeting-card {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 24px;
+    overflow: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.greeting-card.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--gold), transparent, var(--gold-light), transparent, var(--gold));
+    border-radius: 26px;
+    animation: rotateGlow 4s linear infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes rotateGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.card-border {
+    position: absolute;
+    inset: 2px;
+    background: linear-gradient(135deg, rgba(15, 31, 61, 0.95), rgba(10, 22, 40, 0.98));
+    border-radius: 22px;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    padding: 50px 40px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: floatCrescent 3s ease-in-out infinite;
+}
+
+.card-title {
+    font-family: 'Aref Ruqaa', 'Amiri', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(212, 168, 85, 0.4);
+}
+
+.card-text {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text-muted);
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+.card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+}
+
+.takbeer {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.takbeer-sub {
+    font-family: 'Amiri', serif;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    color: var(--text-muted);
+}
+
+/* ===== Share Section ===== */
+.share-section {
+    padding: 40px 20px 60px;
+    text-align: center;
+}
+
+.share-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--gold-light);
+    margin-bottom: 30px;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.share-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.share-btn:hover::before {
+    opacity: 1;
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.share-btn:active {
+    transform: translateY(-1px);
+}
+
+.whatsapp {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.twitter {
+    background: linear-gradient(135deg, #1d9bf0, #0d8bd9);
+}
+
+.copy-link {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--bg-dark);
+}
+
+.copy-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.copy-toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(212, 168, 85, 0.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .sheep-field {
+        gap: 20px;
+    }
+
+    .sheep-body {
+        width: 100px;
+        height: 85px;
+    }
+
+    .sheep-wool {
+        width: 80px;
+        height: 55px;
+    }
+
+    .sheep-face {
+        width: 32px;
+        height: 38px;
+    }
+
+    .card-content {
+        padding: 35px 25px;
+    }
+
+    .share-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sheep-field {
+        gap: 10px;
+    }
+
+    .sheep-body {
+        width: 80px;
+        height: 70px;
+    }
+
+    .sheep-wool {
+        width: 65px;
+        height: 45px;
+    }
+
+    .sheep-face {
+        width: 28px;
+        height: 32px;
+    }
+
+    .sheep-head {
+        top: 8px;
+        left: -12px;
+    }
+
+    .sheep-eye {
+        width: 8px;
+        height: 8px;
+    }
+
+    .sheep-horn {
+        width: 10px;
+        height: 14px;
+    }
+
+    .sheep-leg {
+        width: 7px;
+        height: 22px;
+        bottom: -18px;
+    }
+
+    .verse {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
